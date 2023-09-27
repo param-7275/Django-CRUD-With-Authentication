@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block A %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+</head>
+
+<body>
+
+<h2>DATA</h2>
+
+<table>
+    <tr>
+        <th>ADD STUDENT</th>
+        <td ><button><a style="text-decoration:none"  href="http://127.0.0.1:5001/createdata/">add here...</a></button></td>
+    </tr>
+  <tr>
+    <br><br><th>NAME</th>
+    <th>ADDRESS</th>
+    <th>CONTACT</th>
+    <th>ACTION </th>
+  </tr>
+  {% for i in showdata %}
+  <tr>
+    <td>{{ i.student_name}}</td>
+    <td>{{ i.student_address}}</td>
+    <td>{{ i.student_contact}}</td>
+
+	  <td><button><a style="text-decoration:none"  href="http://127.0.0.1:5001/editdata/{{i.id}}">EDIT</a></button>       <button><a style="text-decoration:none"  href="http://127.0.0.1:5001/deldata/{{i.id}}">DELETE</a></button></td>
+
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>
+
+{% endblock A %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>HTML Table</h2>
+
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+
+</table>
+
+</body>
+</html>
+

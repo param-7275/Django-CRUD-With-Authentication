@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block c %}
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>DATA</h2>
+{% if editdata %}
+<form method ="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+  <label for="fname">NAME:</label><br>
+  <input type="text" id="name" name="name" value="{{editdata.student_name}}"><br><br>
+  <label for="lname">ADDRESS:</label><br>
+  <input type="text" id="address" name="address" value="{{editdata.student_address}}"><br><br>
+  <label for="lname">CONTACT:</label><br>
+  <input type="text" id="contact" name="contact" value="{{editdata.student_contact}}"><br><br>
+  <input type="submit" value="Submit">
+</form> 
+{% endif %}
+
+
+</body>
+</html>
+
+{% endblock c %}

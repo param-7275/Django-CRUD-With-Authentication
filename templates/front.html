@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Navbar with Login Example</title>
+     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'><link rel="stylesheet" href="css/style.css">
+
+	<!-- Demo CSS -->
+	<link rel="stylesheet" href="css/demo.css">
+  
+  </head>
+  <body>
+
+        <nav class="navbar navbar-default navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">HOME</a></li>
+        
+        
+        
+      </ul>
+      
+<!-- login modal  -->
+      <!-- <p  style="color:white;">WELCOME {{request.user}}</p> -->
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+          
+			<ul id="login-dp" class="dropdown-menu">
+				<li>
+					 <div class="row">
+							<div class="col-md-12">
+								 <form class="form" action = "login/" role="form" accept-charset="UTF-8" id="login-nav" method='POST'>
+                  {% csrf_token %}
+										<div class="form-group">
+											 <label class="sr-only" for="exampleInputEmail2">user name</label>
+											 <input type="text" class="form-control" name="loginusername" id="exampleInputEmail2" placeholder="username" required>
+										</div>
+										<div class="form-group">
+											 <label class="sr-only" for="exampleInputPassword2">Password</label>
+											 <input type="password" class="form-control" name="loginpassword" id="exampleInputPassword2" placeholder="Password" required>
+										</div>
+										<div class="form-group">
+											 <!-- <button type="submit" class="btn btn-primary btn-block">Sign in</button> -->
+                       <input type="submit" value="Login">
+                       <!-- <a href = "{% url 'login' %}">Sign in</a> -->
+										</div>
+										<div class="checkbox">
+											 
+										</div>
+								 </form>
+							</div>
+							
+					 </div>
+				</li>
+        
+			</ul>
+        </li>
+      </ul>
+
+<!-- sinup modal  -->
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>SignUp</b> <span class="caret"></span></a>
+          <ul id="login-dp" class="dropdown-menu">
+            <li>
+               <div class="row">
+                  <div class="col-md-12">
+                     <form class="form" role="form"  action = "signup/" accept-charset="UTF-8" id="login-nav" method='POST'>
+                      {% csrf_token %}
+                        <div class="form-group">
+                          <label class="sr-only" for="exampleInputEmail2">User Name</label>
+                          <input type="text" class="form-control" name="username" id="exampleInputEmail2" placeholder="alpha&numeric" required>
+                        </div>
+                        <div class="form-group">
+                           <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                           <input type="email" class="form-control" name="email" id="exampleInputEmail2" placeholder="Email address" required>
+                        </div>
+                        <div class="form-group">
+                          <label class="sr-only" for="exampleInputEmail2">Password</label>
+                          <input type="password" class="form-control" name="pass1" id="exampleInputEmail2" placeholder="Create Password" required>
+                        </div>
+                       <div class="form-group">
+                           <label class="sr-only" for="exampleInputPassword2">Password</label>
+                           <input type="password" class="form-control" name="pass2" id="exampleInputPassword2" placeholder="Password Again " required>
+                        </div>
+                        <div class="form-group">
+                       <input type="submit" value="SignUp">
+
+                        </div>
+                        </div>
+
+
+                     </form>
+                  </div>
+                  
+               </div>
+            </li>  
+            
+          </ul>
+            </li>
+          </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+  {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li style="border: solid 2px red; background-color: aqua;">{{ message }}</li>
+        {% endfor %}
+    </ul>
+  {% endif %}
+
+
+   <header class="intro">
+ <h1>WELCOME TO MINI AUTHENTICATION SYSTEM WITH CRUD OPERATION-</h1>
+  <p> Its a mini login,signup and logout page whereas the data of the student is stored in a table form . </p>
+ <div class="action">
+ </div>
+ 
+ </header>
+ <main>
+  <article>
+    <h2>ONLY AUTHENTICATED USER IS SHOW THE RECORD:</h2>
+    <p>before the show record of student you need to signup if you already signup then simply click <br>on the login buton and enter the students record and check the data of all the students.</p>
+
+
+  </article>
+ </main>
+ 
+  <footer class="credit"><H3>CREATOR: PARAMJEET SINGH -</H3>
+
+    <h2>SUMMARY:-</h2>
+  <p><h4>Its a simple authentication system with using CRUD(Create, Read, Update, Delete) operation <br> and Authentication (login
+    logout & signup) system using Django, Python, Html  and  CSS. <br> In this 
+    project  store a data of students  when the person login in form then all 
+    data show  in <br> the front then he can edit, delete, create and update the
+    data only when the user is authenticated.</h4>
+    </p>
+  <!-- jQuery -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+      <!-- Bootstrap JS -->
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
+  
+  </body>
+</html>

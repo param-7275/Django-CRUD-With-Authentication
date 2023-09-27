@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block B %}
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>DATA</h2>
+
+<form  method = "POST" enctype="multipart/form-data">
+    {% csrf_token %}
+  <label for="fname">NAME:</label><br>
+  <input type="text" id="fname" name="name" value=""><br><br>
+  <label for="lname">ADDRESS:</label><br>
+  <input type="text" id="lname" name="address" value=""><br><br>
+  <label for="contact">CONTACT:</label><br>
+  <input type="text" id="lname" name="contact" value=""><br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+</body>
+</html>
+{% endblock B %}
